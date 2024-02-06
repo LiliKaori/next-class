@@ -1,4 +1,5 @@
 
+import {track} from '@vercel/analytics'
 import { ModeToggle } from '../_components/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -21,8 +22,17 @@ export default function IntroSection (){
           Invista na sua carreira e aprenda a desenvolver aplicações que as grandes empresas estão utilizando. Faça parte da próxima turma da formação mais completa de Next.js 14.
           </p>
           <div className='space-x-4'>
-            <a href='#investment' className='bg-primary py-2 px-4 text-md text-white rounded shadow-lg font-bold'>Quero fazer parte</a>
-            <a href='#feature' className={cn(buttonVariants({variant: 'outline', size: 'lg'}))}>Saiba mais</a>
+            <a href='#investment' className='bg-primary py-2 px-4 text-md text-white rounded shadow-lg font-bold'
+              onClick={()=>{
+                track('enrollment', {location: 'intro'})
+              }}
+            >
+              Quero fazer parte</a>
+            <a href='#feature' className={cn(buttonVariants({variant: 'outline', size: 'lg'}))}
+              onClick={()=>{
+                track('feature')
+              }}
+            >Saiba mais</a>
           </div>
         </div>        
       </section>

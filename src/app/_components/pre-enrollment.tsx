@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import Confetti from 'react-dom-confetti'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { track } from '@vercel/analytics'
 
 const formSchema = z.object({
     name: z.string().min(2, {message: 'Nome deve conter ao menos 2 caracteres.'}),
@@ -41,12 +42,18 @@ export default function PreEnrollment (){
     const onSubmit = async (values: FormType)=>{
         setCompleted(true)
         await saveLead({name:values.name, email: values.email, phoneNumber: values.phoneNumber })
+
+        track('pre-enrollment', {location: 'save'})
+        
     }
     return(
         <Dialog>
             <DialogTrigger asChild>
                 <Button variant="default" size="lg"
                     className='bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105'
+                    onClick={()=>{
+                        track('pre-enrollment', {location: 'investment'})
+                    }}
                 >
                     Lista de espera
                 </Button>
