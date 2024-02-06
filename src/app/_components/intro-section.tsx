@@ -1,4 +1,5 @@
 
+'use client'
 import {track} from '@vercel/analytics'
 import { ModeToggle } from '../_components/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
