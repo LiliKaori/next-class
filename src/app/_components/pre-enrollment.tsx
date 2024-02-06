@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import InputMask, { ReactInputMask } from 'react-input-mask'
+import InputMask from 'react-input-mask'
 import z from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
 import { useState } from 'react'

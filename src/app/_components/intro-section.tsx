@@ -31,7 +31,7 @@ export default function IntroSection (){
               Quero fazer parte</a>
             <a href='#feature' className={cn(buttonVariants({variant: 'outline', size: 'lg'}))}
               onClick={()=>{
-                track('feature')
+                track('features')
               }}
             >Saiba mais</a>
           </div>
